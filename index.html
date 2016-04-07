@@ -18,12 +18,16 @@
       </div>
     </main>
     <script>
-      window.PC = {}
+      window.PC = {
+        pages: {}
+      }
     </script>
     <script src="https://npmcdn.com/contentful@3.3.5/browser-dist/contentful.min.js" charset="utf-8"></script>
     <script src="https://npmcdn.com/marked@0.3.5/marked.min.js" charset="utf-8"></script>
     <script src="./app.js" charset="utf-8"></script>
-    <script src="./pages.js" charset="utf-8"></script>
+    <script src="./pages/products.js" charset="utf-8"></script>
+    <script src="./pages/categories.js" charset="utf-8"></script>
+    <script src="./pages/about.js" charset="utf-8"></script>
     <script>
       PC.init()
     </script>
