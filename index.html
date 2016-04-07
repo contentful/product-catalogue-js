@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <base href='' />
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <main>
+      <nav>
+        <ul>
+          <li><a href="/">Products</a></li>
+          <li><a href="/categories">Categories</a></li>
+          <li><a href="/about">About</a></li>
+        </ul>
+      </nav>
+      <div id="content">
+      </div>
+    </main>
+    <script>
+      window.PC = {}
+    </script>
+    <script src="https://npmcdn.com/contentful@3.3.5/browser-dist/contentful.min.js" charset="utf-8"></script>
+    <script src="https://npmcdn.com/marked@0.3.5/marked.min.js" charset="utf-8"></script>
+    <script src="./app.js" charset="utf-8"></script>
+    <script src="./pages.js" charset="utf-8"></script>
+    <script>
+      PC.init()
+    </script>
+  </body>
+</html>
