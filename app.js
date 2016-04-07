@@ -6,6 +6,11 @@ PC.init = function () {
     space: 'wl1z0pal05vy'
   })
 
+  PC.config = {
+    productContentTypeId: '2PqfXUJwE8qSYKuM0U6w8M',
+    categoryContentTypeId: '6XwpTaSiiI2Ak2Ww0oi6qa'
+  }
+
   setupHistory()
   setupNavAnchorListeners()
 
@@ -21,9 +26,9 @@ function setupHistory() {
 }
 
 function setupNavAnchorListeners() {
-  document.querySelector('main > nav').addEventListener('click', function (ev) {
+  document.querySelector('body').addEventListener('click', function (ev) {
     ev.preventDefault()
-    if(ev.target.tagName.toLowerCase() === 'a') {
+    if(ev.target.tagName.toLowerCase() === 'a' && 'nav' in ev.target.dataset) {
       history.pushState({href: ev.target.href}, '', ev.target.href)
       loadPage(ev.target.href)
     }
@@ -32,7 +37,8 @@ function setupNavAnchorListeners() {
 
 function loadPage(href) {
   href = href.replace(/(^http(s)?:\/\/\w+(:\d+)?\/|^\/)/, '')
-  switch(href) {
+  var urlParts = href.split('/')
+  switch(urlParts[0]) {
     case 'categories':
       PC.pages.categories()
       break
@@ -40,7 +46,7 @@ function loadPage(href) {
       PC.pages.about()
       break
     case 'product':
-      PC.pages.product(id)
+      PC.pages.product(urlParts[1])
       break
     case 'brand':
       PC.pages.brand(brand)

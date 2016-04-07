@@ -1,7 +1,9 @@
 (function () {
 
 PC.pages.categories = function () {
-  PC.contentfulClient.getEntries({content_type: '6XwpTaSiiI2Ak2Ww0oi6qa'})
+  PC.contentfulClient.getEntries({
+    content_type: PC.config.categoryContentTypeId
+  })
   .then(function (entries) {
     var categories = entries.items.map(function (entry) {
       return '<p>'+entry.fields.title+'</p>'

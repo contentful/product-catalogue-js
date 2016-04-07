@@ -1,32 +1,23 @@
 (function () {
 
-PC.pages.products = function () {
+PC.pages.product = function (slug) {
   PC.contentfulClient.getEntries({
-    content_type: PC.config.productContentTypeId
+    content_type: PC.config.productContentTypeId,
+    'fields.slug': slug
   })
   .then(function (entries) {
-    PC.container.innerHTML = renderProducts(entries.items)
+    PC.container.innerHTML = renderSingleProduct(entries.items[0])
   })
-}
-
-function renderProducts(products) {
-  return '' +
-    '<h1>Products</h1>' +
-    products.map(renderSingleProduct).join('\n')
 }
 
 function renderSingleProduct(product) {
   var fields = product.fields
   return '<div>' +
     '<div>' +
-      renderImage(fields.image[0], fields.slug) +
+      renderImage(fields.image[0]) +
     '</div>' +
     '<div>' +
-      '<h2>' +
-        '<a href="/product/' + fields.slug + '" data-nav>' +
-          fields.productName +
-        '</a>'+
-      '</h2>' +
+      '<h2>' + fields.productName + '</h2>' +
       ' by ' +
       '<a href="/brands/' + fields.brand.sys.id + '" data-nav>' + fields.brand.fields.companyName + '</a>'
     '</div>' +
@@ -41,11 +32,9 @@ function renderSingleProduct(product) {
   '</div>'
 }
 
-function renderImage(image, slug) {
+function renderImage(image) {
   if(image && image.fields.file) {
-    return '<a href="/product/' + slug + '" data-nav>' +
-      '<img src="' + image.fields.file.url + '" width="150" height="150" />' +
-    '</a>'
+    return '<img src="' + image.fields.file.url + '" width="150" height="150" />'
   } else {
     return ''
   }
