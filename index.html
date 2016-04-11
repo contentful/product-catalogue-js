@@ -3,18 +3,24 @@
   <base href='' />
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Product Catalogue</title>
+    <link href="./styles.css" rel="stylesheet" />
   </head>
   <body>
     <main>
-      <nav>
-        <ul>
-          <li><a href="/" data-nav>Products</a></li>
-          <li><a href="/categories" data-nav>Categories</a></li>
-          <li><a href="/about" data-nav>About</a></li>
-        </ul>
-      </nav>
-      <div id="content">
+      <div class="app-container">
+        <nav>
+          <div class="nav-container">
+            <img src="./contentful.svg" width="157" height="32"/>
+              <ul>
+                <li><a href="/" data-nav>Products</a></li>
+                <li><a href="/categories" data-nav>Categories</a></li>
+                <li><a href="/about" data-nav>About</a></li>
+              </ul>
+          </div>
+        </nav>
+        <div id="content" class="content-container">
+        </div>
       </div>
     </main>
     <script>
