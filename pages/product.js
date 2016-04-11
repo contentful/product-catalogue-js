@@ -1,12 +1,18 @@
 (function () {
 
-PC.pages.product = function (slug) {
-  PC.contentfulClient.getEntries({
+PC.pages.product = {}
+
+/**
+ * Renders the individual product page
+ */
+
+PC.pages.product.renderHTML = function (params) {
+  return PC.contentfulClient.getEntries({
     content_type: PC.config.productContentTypeId,
-    'fields.slug': slug
+    'fields.slug': params.productSlug
   })
   .then(function (entries) {
-    PC.container.innerHTML = renderSingleProduct(entries.items[0])
+    return renderSingleProduct(entries.items[0])
   })
 }
 
@@ -14,19 +20,19 @@ function renderSingleProduct(product) {
   var fields = product.fields
   return '<div>' +
     '<div>' +
-      renderImage(fields.image[0]) +
-    '</div>' +
-    '<div>' +
       '<h2>' + fields.productName + '</h2>' +
       ' by ' +
-      '<a href="/brands/' + fields.brand.sys.id + '" data-nav>' + fields.brand.fields.companyName + '</a>'
+      '<a href="/brands/' + fields.brand.sys.id + '" data-nav>' + fields.brand.fields.companyName + '</a>' +
+    '</div>' +
+    '<div>' +
+      renderImage(fields.image[0]) +
     '</div>' +
     '<p>' +
     fields.categories.map(function (category) {
       return category.fields.title
     }).join(', ') +
     '</p>' +
-    '<p>' + PC.utils.truncate(fields.productDescription, 100) + '</p>' +
+    '<p>' + marked(fields.productDescription) + '</p>' +
     '<p>' + fields.price + ' &euro;</p>' +
     '<p>Tags: ' + fields.tags.join(', ')+ '</p>' +
   '</div>'

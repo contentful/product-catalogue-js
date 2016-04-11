@@ -1,11 +1,28 @@
 (function () {
 
-PC.pages.products = function () {
-  PC.contentfulClient.getEntries({
+PC.pages.products = {}
+
+/**
+ * Renders the products list page
+ *
+ * The products list page can optionally be filtered by a category, and will
+ * then only show products from that category. This is only used from the
+ * categories page, in order to render lists of products with only products
+ * from a selected category.
+ */
+
+PC.pages.products.renderHTML = function (params) {
+  var query = {
     content_type: PC.config.productContentTypeId
-  })
+  }
+
+  if (params && params.categoryId) {
+    query['fields.categories.sys.id[in]'] = params.categoryId
+  }
+
+  return PC.contentfulClient.getEntries(query)
   .then(function (entries) {
-    PC.container.innerHTML = renderProducts(entries.items)
+    return renderProducts(entries.items)
   })
 }
 
@@ -35,7 +52,7 @@ function renderSingleProduct(product) {
       return category.fields.title
     }).join(', ') +
     '</p>' +
-    '<p>' + PC.utils.truncate(fields.productDescription, 100) + '</p>' +
+    '<p>' + PC.utils.truncate(marked(fields.productDescription), 100) + '</p>' +
     '<p>' + fields.price + ' &euro;</p>' +
     '<p>Tags: ' + fields.tags.join(', ')+ '</p>' +
   '</div>'
