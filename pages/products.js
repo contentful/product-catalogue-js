@@ -60,18 +60,18 @@ function renderProductDetails(fields) {
 function renderProductHeader(fields) {
   return '<div class="product-header">' +
     '<h2>' +
-      '<a href="/product/' + fields.slug + '" data-nav>' +
+      '<a href="product/' + fields.slug + '" data-nav>' +
         fields.productName +
       '</a>'+
     '</h2>' +
     ' by ' +
-    '<a href="/brand/' + fields.brand.sys.id + '" data-nav>' + fields.brand.fields.companyName + '</a>' +
+    '<a href="brand/' + fields.brand.sys.id + '" data-nav>' + fields.brand.fields.companyName + '</a>' +
   '</div>'
 }
 
 function renderImage(image, slug) {
   if(image && image.fields.file) {
-    return '<a href="/product/' + slug + '" data-nav>' +
+    return '<a href="product/' + slug + '" data-nav>' +
       '<img src="' + image.fields.file.url + '" width="150" height="150" />' +
     '</a>'
   } else {

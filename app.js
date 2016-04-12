@@ -72,7 +72,7 @@ function setupNavAnchorListeners() {
  * the popstate event), and splits it by '/'.
  */
 function loadPage(href) {
-  href = href.replace(/(^http(s)?:\/\/\w+(:\d+)?\/|^\/)/, '')
+  href = href.replace(document.baseURI, '')
   var urlParts = href.split('/')
   var pageName = urlParts[0]
   // Attempts to get the object which contains the methods to render and setup

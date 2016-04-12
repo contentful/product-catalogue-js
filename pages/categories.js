@@ -34,12 +34,12 @@ function renderCategoryListPage(categories, productsHTML) {
 }
 
 function renderCategoryList(categories) {
-  return '<li><a href="/categories" data-nav>All</a></li>'+
+  return '<li><a href="categories" data-nav>All</a></li>'+
     categories.map(function (category) {
       var fields = category.fields
       return '<li>' +
         '<img src="' + fields.icon.fields.file.url + '" width="20" height="20" alt="' + fields.categoryDescription + '" title="' + fields.categoryDescription + '" />' +
-        '<a href="/categories/' + category.sys.id + '" data-nav>' + fields.title + '</a>' +
+        '<a href="categories/' + category.sys.id + '" data-nav>' + fields.title + '</a>' +
         '</li>'
     }).join('\n')
 }
