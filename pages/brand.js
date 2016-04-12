@@ -17,7 +17,7 @@ PC.pages.brand.renderHTML = function (params) {
 
 function renderSingleBrand(brand) {
   var fields = brand.fields
-  return '<div>' +
+  return '<div class="brand">' +
     '<h2>' + fields.companyName+ '</h2>' +
     '<div>' +
       renderImage(fields.logo) +

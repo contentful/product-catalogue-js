@@ -97,7 +97,7 @@ function loadPage(href) {
       })
       break
     // /brand/:id
-    case 'brands':
+    case 'brand':
       loader = page.renderHTML({
         brandId: urlParts[1]
       })

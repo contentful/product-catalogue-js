@@ -18,29 +18,33 @@ PC.pages.product.renderHTML = function (params) {
 
 function renderSingleProduct(product) {
   var fields = product.fields
-  return '<div>' +
-    '<div>' +
-      '<h2>' + fields.productName + '</h2>' +
-      ' by ' +
-      '<a href="/brands/' + fields.brand.sys.id + '" data-nav>' + fields.brand.fields.companyName + '</a>' +
-    '</div>' +
-    '<div>' +
+  return '<div class="product">' +
+    '<div class="product-image">' +
       renderImage(fields.image[0]) +
     '</div>' +
-    '<p>' +
-    fields.categories.map(function (category) {
-      return category.fields.title
-    }).join(', ') +
+    '<div class="product-header">' +
+      '<h2>' + fields.productName + '</h2>' +
+      ' by ' +
+      '<a href="/brand/' + fields.brand.sys.id + '" data-nav>' + fields.brand.fields.companyName + '</a>' +
+    '</div>' +
+    '<p class="product-categories">' +
+      fields.categories.map(function (category) {
+        return category.fields.title
+      }).join(', ') +
     '</p>' +
     '<p>' + marked(fields.productDescription) + '</p>' +
+    '<p>Size/Type/Color: ' + fields.sizetypecolor+ '</p>' +
+    '<p>' + fields.quantity + ' in stock</p>' +
     '<p>' + fields.price + ' &euro;</p>' +
-    '<p>Tags: ' + fields.tags.join(', ')+ '</p>' +
+    '<p>SKU: ' + fields.sku + '</p>' +
+    '<p>More details: <a href="'+fields.website+'">' + fields.website + '</a></p>' +
+    '<p class="product-tags"><span>Tags:</span> ' + fields.tags.join(', ')+ '</p>' +
   '</div>'
 }
 
 function renderImage(image) {
   if(image && image.fields.file) {
-    return '<img src="' + image.fields.file.url + '" width="150" height="150" />'
+    return '<img src="' + image.fields.file.url + '" width="300" height="300" />'
   } else {
     return ''
   }

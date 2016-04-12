@@ -27,34 +27,45 @@ PC.pages.products.renderHTML = function (params) {
 }
 
 function renderProducts(products) {
-  return '' +
-    '<h1>Products</h1>' +
-    products.map(renderSingleProduct).join('\n')
+  return '<h1>Products</h1>' +
+    '<div class="products">' +
+    products.map(renderSingleProduct).join('\n') +
+    '</div>'
 }
 
 function renderSingleProduct(product) {
   var fields = product.fields
-  return '<div>' +
-    '<div>' +
+  return '<div class="product-in-list">' +
+    '<div class="product-image">' +
       renderImage(fields.image[0], fields.slug) +
     '</div>' +
-    '<div>' +
-      '<h2>' +
-        '<a href="/product/' + fields.slug + '" data-nav>' +
-          fields.productName +
-        '</a>'+
-      '</h2>' +
-      ' by ' +
-      '<a href="/brands/' + fields.brand.sys.id + '" data-nav>' + fields.brand.fields.companyName + '</a>'
+    '<div class="product-details">' +
+      renderProductDetails(fields) +
     '</div>' +
-    '<p>' +
+  '</div>'
+}
+
+function renderProductDetails(fields) {
+  return renderProductHeader(fields) +
+    '<p class="product-categories">' +
     fields.categories.map(function (category) {
       return category.fields.title
     }).join(', ') +
     '</p>' +
     '<p>' + PC.utils.truncate(marked(fields.productDescription), 100) + '</p>' +
     '<p>' + fields.price + ' &euro;</p>' +
-    '<p>Tags: ' + fields.tags.join(', ')+ '</p>' +
+    '<p class="product-tags"><span>Tags:</span> ' + fields.tags.join(', ')+ '</p>'
+}
+
+function renderProductHeader(fields) {
+  return '<div class="product-header">' +
+    '<h2>' +
+      '<a href="/product/' + fields.slug + '" data-nav>' +
+        fields.productName +
+      '</a>'+
+    '</h2>' +
+    ' by ' +
+    '<a href="/brand/' + fields.brand.sys.id + '" data-nav>' + fields.brand.fields.companyName + '</a>' +
   '</div>'
 }
 

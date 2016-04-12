@@ -15,13 +15,11 @@ PC.pages.categories.renderHTML = function (params) {
     content_type: PC.config.categoryContentTypeId
   })
   .then(function (entries) {
-    var selectedCategoryId
+    var query = {}
     if(params.selectedCategoryId) {
-      selectedCategoryId = params.selectedCategoryId
-    } else {
-      selectedCategoryId = entries.items[0].sys.id
+      query.categoryId = params.selectedCategoryId
     }
-    return PC.pages.products.renderHTML({categoryId: selectedCategoryId})
+    return PC.pages.products.renderHTML(query)
     .then(function (productsHTML) {
       return renderCategoryListPage(entries.items, productsHTML)
     })
@@ -29,20 +27,21 @@ PC.pages.categories.renderHTML = function (params) {
 }
 
 function renderCategoryListPage(categories, productsHTML) {
-  return '<div>' +
-      '<div>' + renderCategoryList(categories) + '</div>' +
+  return '<div class="categories">' +
+      '<ul class="categories-list">' + renderCategoryList(categories) + '</ul>' +
       '<div>' + productsHTML + '</div>' +
     '</div>'
 }
 
 function renderCategoryList(categories) {
-  return categories.map(function (category) {
-    var fields = category.fields
-    return '<div>' +
-      '<img src="' + fields.icon.fields.file.url + '" width="15" height="15" alt="' + fields.categoryDescription + '" title="' + fields.categoryDescription + '" />' +
-      '<h1><a href="/categories/' + category.sys.id + '" data-nav>' + fields.title + '</a></h1>' +
-      '</div>'
-  }).join('\n')
+  return '<li><a href="/categories" data-nav>All</a></li>'+
+    categories.map(function (category) {
+      var fields = category.fields
+      return '<li>' +
+        '<img src="' + fields.icon.fields.file.url + '" width="20" height="20" alt="' + fields.categoryDescription + '" title="' + fields.categoryDescription + '" />' +
+        '<a href="/categories/' + category.sys.id + '" data-nav>' + fields.title + '</a>' +
+        '</li>'
+    }).join('\n')
 }
 
 }());

@@ -125,3 +125,66 @@ a {
   background: linear-gradient(0deg, #3C80CF 0%, #5B9FEF 100%) no-repeat;
   color: white;
 }
+
+.products {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.product-in-list {
+  display: flex;
+  margin-bottom: 60px;
+}
+
+.product-image a {
+  border-bottom: none;
+}
+
+.product-header h2 {
+  display: inline;
+}
+
+.product-header h2 a {
+  border-bottom: none;
+}
+
+.product-details > * {
+  margin-bottom: 10px;
+}
+
+.product-categories {
+  font-weight: bold;
+}
+
+.product-tags span {
+  font-weight: bold;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+}
+
+.product > *, .brand > * {
+  margin-bottom: 15px;
+}
+
+.categories {
+  display: flex;
+}
+
+.categories-list {
+  list-style: none;
+  width: 20%;
+}
+
+.categories-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.categories-list img {
+  margin-right: 5px;
+}
