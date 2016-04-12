@@ -25,7 +25,7 @@ function renderSingleProduct(product) {
     '<div class="product-header">' +
       '<h2>' + fields.productName + '</h2>' +
       ' by ' +
-      '<a href="/brand/' + fields.brand.sys.id + '" data-nav>' + fields.brand.fields.companyName + '</a>' +
+      '<a href="brand/' + fields.brand.sys.id + '" data-nav>' + fields.brand.fields.companyName + '</a>' +
     '</div>' +
     '<p class="product-categories">' +
       fields.categories.map(function (category) {
