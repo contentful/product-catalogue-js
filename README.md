@@ -25,6 +25,12 @@ This code makes some use of Promises, which are also used by the Contentful SDK.
 
 You can try this app at http://contentful.github.io/product-catalogue-js
 
+## Try it on JSFiddle
+
+You can try and play with a subsection of this app at the following fiddle: https://jsfiddle.net/trodrigues/btvhh4ma/
+
+There you can see how to get and display a list of products.
+
 ## Running it locally
 
 Because this app makes use of the browser's [History API](https://developer.mozilla.org/en-US/docs/Web/API/History_API) you can't just open the index.html file locally on a browser.
