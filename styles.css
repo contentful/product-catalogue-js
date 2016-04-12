@@ -76,3 +76,52 @@ a {
 .app-container nav a:hover {
   color: white;
 }
+
+.settings-form,
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-container {
+  margin: 35px 0px 65px;
+}
+
+.settings-form > p,
+.form-container > p {
+  margin-bottom: 25px;
+}
+
+.settings-form p {
+  text-align: center;
+}
+
+.settings-form input,
+.settings-form button {
+  font-size: 14px;
+  padding: 0 10px;
+  height: 38px;
+  border-radius: 2px;
+}
+
+.settings-form input {
+  width: 350px;
+  background-color: #F7F9FA;
+  border: 1px solid #DBE3E7;
+  color: #536171;
+}
+
+.settings-form .label-title {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.settings-form button {
+  width: 200px;
+  border: 1px solid #2b67ad;
+  background: linear-gradient(0deg, #3C80CF 0%, #5B9FEF 100%) no-repeat;
+  color: white;
+}
