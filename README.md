@@ -1,5 +1,7 @@
 # JavaScript Product Catalogue
 
+[Contentful](https://www.contentful.com) is a content management platform for web applications, mobile apps and connected devices. It allows you to create, edit & manage content in the cloud and publish it anywhere via a powerful API. Contentful offers tools for managing editorial teams and enabling cooperation between organizations.
+
 This repository shows how to build a frontend JavaScript based application with Contentful for a Product Catalogue, based on the Contentful starter Product Catalogue example space.
 
 This project uses no specific frameworks and is written in plain JavaScript, making use of browser APIs and HTML/CSS.
