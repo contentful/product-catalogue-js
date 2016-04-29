@@ -15,6 +15,7 @@ cp -r *.svg *.css *.js pages $PAGES_DIR
 
 # Setup base path and analytics tag
 cat index.html | \
+  ./bin/setup_analytics | \
   sed -e 's/<base href="\/"/<base href="\/product-catalogue-js\/"/g' > \
   $PAGES_DIR/index.html
 
