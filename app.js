@@ -28,8 +28,8 @@ PC.init = function () {
   // main container for rendering the app
   PC.container = document.getElementById('content')
 
-  // load the index page
-  loadPage('')
+  // load the requested route
+  loadPage(window.location.href)
 }
 
 // Navigates to a given page via the history API
