@@ -41,7 +41,7 @@ You'll need an http server in order to run this.
 
 If you have node.js and [npm](http://npmjs.com/) available, you can run `npm install http-server` and then run `http-server`. Now you can open http://localhost:8080 in your browser.
 
-If you are on Mac OSX you can also run `python -m SimpleHTTPServer` in the project directory. Now open http://localhost:8000 in your browser.
+If you are on Mac OSX you can also run `python server.py` in the project directory. Now open http://localhost:8000 in your browser.
 
 If you use any other server and serve this in a subdirectory, make sure to set the appropriate value in the `<base>` tag on `index.html`
 

@@ -19,6 +19,8 @@ cat index.html | \
   sed -e 's/<base href="\/"/<base href="\/product-catalogue-js\/"/g' > \
   $PAGES_DIR/index.html
 
+cp $PAGES_DIR/index.html $PAGES_DIR/404.html
+
 pushd $PAGES_DIR
 git add .
 git commit -a -m "Page update"
