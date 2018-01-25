@@ -52,7 +52,7 @@ function renderProductDetails(fields) {
       return category.fields.title
     }).join(', ') +
     '</p>' +
-    '<p>' + PC.utils.truncate(marked(fields.productDescription), 100) + '</p>' +
+    PC.utils.truncate(marked(fields.productDescription), 100) +
     '<p>' + fields.price + ' &euro;</p>' +
     '<p class="product-tags"><span>Tags:</span> ' + fields.tags.join(', ')+ '</p>'
 }
