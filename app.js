@@ -12,8 +12,8 @@ PC.init = function () {
   // Initializes the Contentful client with the required credentials for a
   // product catalog space. Feel free to replace them with our own.
   PC.contentfulClient = contentful.createClient({
-    accessToken: 'f35d62ae3f7c737f1a0b28eac0a035aa41f45b8239f37f41051110e052753d18',
-    space: 'bkp1t915hkvx'
+    accessToken: 'QVDJpLJLbLBD0_UmMCEAsNZGNdBs0_4-Xec1-DJKs34 ',
+    space: '5o9cknti2zt0'
   })
 
   // IDs of some of the Content Types used in the app
